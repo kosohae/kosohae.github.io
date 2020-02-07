@@ -55,7 +55,6 @@ from tqdm.auto import tqdm
 
 from torch.optim import Optimizer
 from torch.optim.lr_scheduler import LambdaLR
-
 </code>
 
 ## 데이터 전처리
@@ -124,7 +123,6 @@ class skipConnectionModel(nn.Module):
         output = self.fclayer(downblock4_out)
         
         return output
-
 </code>
 
 ## 목적 함수
@@ -168,7 +166,6 @@ epoch마다 돌면서 확인할 수 있도록 해서 지속적으로 확인할 �
 결과를 csv 파일로 쓴 후, 추가로 기존에 잘 나왔던 부분을 고려하고자 따로 MAE 함수를 정의해서 비교할 수 있도록 했습니다.
 
 <code>
-
 def mae(best_path, my_path):
     best = pd.read_csv(best_path)
     best_value = best.iloc[:,1:].values
@@ -179,7 +176,6 @@ def mae(best_path, my_path):
     abs_value = abs(best_value - my_value)
     size = abs_value.shape
     return sum(sum(abs_value)) / (size[0]*size[1])
-
 </code>
 
 대회에 제출할 때는 bagging 형식의 평균 앙상블 전략을 취해서 단일 모델로는 0.41 정도의 mae를 가지는 모델을 0.32(최종기록)까지 떨어트릴 수 있었습니다.
