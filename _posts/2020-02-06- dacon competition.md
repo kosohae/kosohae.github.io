@@ -38,7 +38,7 @@ NVIDIA-SMI 430.64       Driver Version: 430.64       CUDA Version: 10.1
 
 ## 사용했던 Library 및 Data
 
-<code>
+<pre>
 import math
 import time
 from itertools import chain
@@ -55,7 +55,7 @@ from tqdm.auto import tqdm
 
 from torch.optim import Optimizer
 from torch.optim.lr_scheduler import LambdaLR
-</code>
+</pre>
 
 ## 데이터 전처리
 ### Data Cleansing & Pre-Processing
@@ -83,7 +83,7 @@ skip connection을 진행할때마다 node에 맞게 feature의 normalization을
 ![GELU](./img/GELU.png)
 
 
-<code>
+<pre>
 class skipConnectionModel(nn.Module):
     def __init__(self):
         super(skipConnectionModel, self).__init__()
@@ -123,7 +123,7 @@ class skipConnectionModel(nn.Module):
         output = self.fclayer(downblock4_out)
         
         return output
-</code>
+</pre>
 
 ## 목적 함수
 test 결과를 MAE로 판단합니다.
@@ -137,12 +137,12 @@ test 결과를 MAE로 판단합니다.
 - learning rate 조정
  - 처음에는 le-04 정도의 learning rate가 가장 효과적이었습니다.
    개인적으로 Adam과 epoch이 진행됐을 경우, learning rate를 추가로 decaying 하여 감소시키는 방법을 따랐습니다. 
-<code>
+<pre>
 
 def update_lr(optimizer, lr):
     for param_group in optimizer.param_groups:
             param_group['lr'] = lr
-</code>
+</pre>
 
 차후에는 torch에 구현되어있는 AdamW optimizer와 scheduler를 사용하면서 learning rate 를 1e-03로 좀 더 크게 잡고 학습했을 때, 더 학습이 잘 되었습니다.
 - optimizer 조정
@@ -165,7 +165,7 @@ epoch마다 돌면서 확인할 수 있도록 해서 지속적으로 확인할 �
 ## 결과
 결과를 csv 파일로 쓴 후, 추가로 기존에 잘 나왔던 부분을 고려하고자 따로 MAE 함수를 정의해서 비교할 수 있도록 했습니다.
 
-<code>
+<pre>
 def mae(best_path, my_path):
     best = pd.read_csv(best_path)
     best_value = best.iloc[:,1:].values
@@ -176,7 +176,8 @@ def mae(best_path, my_path):
     abs_value = abs(best_value - my_value)
     size = abs_value.shape
     return sum(sum(abs_value)) / (size[0]*size[1])
-</code>
+
+</pre>
 
 대회에 제출할 때는 bagging 형식의 평균 앙상블 전략을 취해서 단일 모델로는 0.41 정도의 mae를 가지는 모델을 0.32(최종기록)까지 떨어트릴 수 있었습니다.
 앙상블 할 때, 모델의 망 구성을 변형한 것도 있었고 하이퍼 파라미터 조정을 통해서 다르게 구성한 모델도 있었습니다.
