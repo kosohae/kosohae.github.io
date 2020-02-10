@@ -77,9 +77,9 @@ from torch.optim.lr_scheduler import LambdaLR
 또 변수들을 망에 학습시킬 때, Layer Normalization을 사용하여 계산의 속도를 높일 수 있도록 조정했습니다.
 skip connection을 진행할때마다 node에 맞게 feature의 normalization을 진행할 수 있었고, 실제로 10 epoch 안에 loss가 150에서 1로 떨어지는 결과를 얻을 수 있었습니다.
 + 활성화 함수의 경우, 기본적으로 ReLU 함수를 사용해서 다음 layer로 값을 전달할 때, 0 미만은 값을 변형하고 0 이상은 그대로 값을 사용하도록 했다. 
-![RELU](C:\Users\carpediem\Desktop\code\blog\img\RELU.png)
+![RELU](./img/RELU.png)
 추가로 0 미만의 값에 대해서도 좀 더 활용해보고자 ReLU함수를 조금 변형한 GeLU 함수를 정의해서 실험했다.
-![GELU](C:\Users\carpediem\Desktop\code\blog\img\GELU.png)
+![GELU](./img/GELU.png)
 
 
 <pre>
@@ -128,7 +128,7 @@ class skipConnectionModel(nn.Module):
 test 결과를 MAE로 판단합니다.
 따라서 학습시에도 실제 정답 값들 (layer 4개)과 추정 값들의 거리를 재는 MAE loss를 사용하였습니다.
 실제로 torch에서는 nn.L1loss로 구현되어 있기 때문에 이를 사용하였습니다. 예측하는 변수가 4개인데 torch에서는 자동으로 계산하여 차이를 최적화합니다.
-![MSE]C:\Users\carpediem\Desktop\code\blog\img\MSE.png)
+![MSE](./img/MSE.png)
 
 ## 모델 학습
 
