@@ -7,18 +7,17 @@ category: Deep Learning
 tags: [deeplearning, mlp]
 ---
 
-"월간 데이콘 1 반도체 박막 두께 분석"에 참여하면서 모델을 구현해보고 실험해보며 진행했던 사항들을 정리하고 공유하고자 글을 나깁니다.
-내용에 대해서 더 토론하고 싶은 부분이 있다면 언제든 댓글 달아주시면 감사하겠습니다.
-
-현재까지 제가 했던 고민들을 정리할 필요성,
-또 1등이라는 좋은 성과를 얻었기 때문에 글로 남기고자 하게되었습니다.
+"월간 데이콘 1 반도체 박막 두께 분석"에 참여하면서 모델을 구현해보고 실험해보며 1등이라는 좋은 성과를 얻을 수 있었습니다.
+진행했던 고민들을 정리하고 내용을 공유하고자 글을 남깁니다. 더 토론하고 싶은 부분이 있다면 언제든 제 git 주소의 이메일로 연락 주시면 감사하겠습니다. 
 
 ## 데이터 설명
 
 layer 1-4 : 박막의 두께
 0 ~ 255 : 반사율 스펙트럼, 빛의 파장 등이 비식별화 된 데이터
+박막의 두께에 영향을 미칠 수 있는 반사율 스펙트럼이나 빛의 파장 식별 수치들
 
-박막의 두께에 영향을 미칠 수 있는 반사율 스펙트럼이나 빛의 파장 식별 수치들은
+데이터에 영향을 미칠 수 있는 변수들을 추려 데이터를 만든 과정은 dacon에서 추가로 정보를 공유해주셨습니다.
+https://dacon.io/competitions/official/235554/talkboard/400310
 
 ## 개발환경
 
@@ -78,9 +77,9 @@ from torch.optim.lr_scheduler import LambdaLR
 또 변수들을 망에 학습시킬 때, Layer Normalization을 사용하여 계산의 속도를 높일 수 있도록 조정했습니다.
 skip connection을 진행할때마다 node에 맞게 feature의 normalization을 진행할 수 있었고, 실제로 10 epoch 안에 loss가 150에서 1로 떨어지는 결과를 얻을 수 있었습니다.
 + 활성화 함수의 경우, 기본적으로 ReLU 함수를 사용해서 다음 layer로 값을 전달할 때, 0 미만은 값을 변형하고 0 이상은 그대로 값을 사용하도록 했다. 
-![RELU](C:\\Users\\carpediem\\Desktop\\code\\blog\\img\\RELU.png)
+![RELU](C:\Users\carpediem\Desktop\code\blog\img\RELU.png)
 추가로 0 미만의 값에 대해서도 좀 더 활용해보고자 ReLU함수를 조금 변형한 GeLU 함수를 정의해서 실험했다.
-![GELU](C:\\Users\\carpediem\\Desktop\\code\\blog\\img\\GELU.png)
+![GELU](C:\Users\carpediem\Desktop\code\blog\img\GELU.png)
 
 
 <pre>
@@ -129,7 +128,7 @@ class skipConnectionModel(nn.Module):
 test 결과를 MAE로 판단합니다.
 따라서 학습시에도 실제 정답 값들 (layer 4개)과 추정 값들의 거리를 재는 MAE loss를 사용하였습니다.
 실제로 torch에서는 nn.L1loss로 구현되어 있기 때문에 이를 사용하였습니다. 예측하는 변수가 4개인데 torch에서는 자동으로 계산하여 차이를 최적화합니다.
-![MSE](C:\\Users\\carpediem\\Desktop\\code\\blog\\img\\MSE.png)
+![MSE]C:\Users\carpediem\Desktop\code\blog\img\MSE.png)
 
 ## 모델 학습
 
