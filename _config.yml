@@ -1,10 +1,10 @@
 # --- General options --- #
 
 # Name of website
-title: carpediem'20
+title: "carpediem'20"
 
 # Short description of your site
-description: data, code, tensor
+description: "data, code, tensor"
 
 # --- Local development options ---
 # If your website is hosted locally rather than on GitHub, then you need to uncomment the next two parameters to set the url and baseurl
@@ -22,14 +22,14 @@ description: data, code, tensor
 navbar-links:
   About Me: "aboutme"
   Category:
-    - Project: "Project"
-    - Research: "Research"
-    - NeuralNetwork: 'NeuralNetwork'
-    - ML&Statistic : 'ML&Statistic'
+    - Project: "category/Project"
+    - Research: "category/Research"
+    - NeuralNetwork: "category/NeuralNetwork"
+    - ML&Statistic : "category/ML&Statistic"
 
 # Image to show in the navigation bar - image must be a square (width = height)
 # Remove this parameter if you don't want an image in the navbar
-avatar: "/img/avatar-icon.png"
+avatar: "/img/old-building-town-street-architecture-florence.jpg"
 
 # If you want to have an image logo in the top-left corner instead of the title text,
 # then specify the following parameter
@@ -61,7 +61,7 @@ footer-link-col: "#404040"
 # Change all these values or delete the ones you don't want.
 # Important: you must keep the "name" parameter, everything else you can remove
 author:
-  name: Some Person
+  name: sanheepark
 
 # Select your active Social Network Links.
 # Uncomment the links you want to show in the footer and add your information to each link.
@@ -70,8 +70,8 @@ author:
 social-network-links:
   rss: true
   email: "gteasan@gmail.com"
-  facebook: "https://www.facebook.com/sanhee.park"
-  github: "https://github.com/kosohae"
+  facebook: "sanhee.park"
+  github: "kosohae"
 #  twitter: daattali
 #  reddit: yourname
 #  linkedin: daattali
