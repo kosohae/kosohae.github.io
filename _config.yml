@@ -4,7 +4,7 @@
 title: "carpediem'20"
 
 # Short description of your site
-description: "data, code, tensor"
+description: ""
 
 # --- Local development options ---
 # If your website is hosted locally rather than on GitHub, then you need to uncomment the next two parameters to set the url and baseurl
@@ -20,12 +20,13 @@ description: "data, code, tensor"
 
 # List of links in the navigation bar
 navbar-links:
-  About Me: "aboutme"
+  Home : "https://kosohae.github.io/"
+  About : "aboutme"
   Category:
-    - Project: "category/Project"
-    - Research: "category/Research"
-    - NeuralNetwork: "category/NeuralNetwork"
-    - ML&Statistic : "category/ML&Statistic"
+    - Project: "Project"
+    - Research: "Research"
+    - NeuralNetwork: "NeuralNetwork"
+    - ML&Statistic : "ML&Statistic"
 
 # Image to show in the navigation bar - image must be a square (width = height)
 # Remove this parameter if you don't want an image in the navbar
@@ -68,7 +69,7 @@ author:
 # You can reorder the items to define the link order.
 # If you want to add a new link that isn't here, you'll need to also edit the file _data/SocialNetworks.yml
 social-network-links:
-  rss: true
+  rss: false
   email: "gteasan@gmail.com"
   facebook: "sanhee.park"
   github: "kosohae"
@@ -94,7 +95,7 @@ share-links-active:
 
 # How to display the link to the website in the footer
 # Remove this if you don't want a link in the footer
-url-pretty: "SanheePark"  # eg. "deanattali.com/beautiful-jekyll"
+url-pretty: ""  # eg. "deanattali.com/beautiful-jekyll"
 
 # --- Web Statistics Section --- #
 
