@@ -1,7 +1,7 @@
 ---
 layout: post
-title: First post!
+title: Test Page
 image: /img/hello_world.jpeg
 ---
 
-This is my first post, how exciting!
+jeklly test용 페이지
