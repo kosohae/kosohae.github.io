@@ -248,11 +248,11 @@ SDSS data
 CC BY 4.0 라이센스를 적용 받습니다. 
 (위의 설명을 보면 SDSS에서 천체 데이터를 데이콘에서 분류문제로 알고리즘을 만들 수 있도록 가공한 것으로 보인다.)
 
-psfMag : Point spread function magnitudes : 먼 천체를 한 점으로 가정하여 측정한 빛의 밝기입니다.
-fiberMag : Fiber magnitudes : 3인치 지름의 광섬유를 사용하여 광스펙트럼을 측정합니다. 광섬유를 통과하는 빛의 밝기입니다.
-petroMag : Petrosian Magnitudes : 은하처럼 뚜렷한 표면이 없는 천체에서는 빛의 밝기를 측정하기 어렵습니다. 천체의 위치와 거리에 상관없이 빛의 밝기를 비교하기 위한 수치입니다.
-modelMag : Model magnitudes : 천체 중심으로부터 특정 거리의 밝기입니다.
-fiberID : 관측에 사용된 광섬유의 구분자
+- psfMag : Point spread function magnitudes : 먼 천체를 한 점으로 가정하여 측정한 빛의 밝기입니다.
+- fiberMag : Fiber magnitudes : 3인치 지름의 광섬유를 사용하여 광스펙트럼을 측정합니다. 광섬유를 통과하는 빛의 밝기입니다.
+- petroMag : Petrosian Magnitudes : 은하처럼 뚜렷한 표면이 없는 천체에서는 빛의 밝기를 측정하기 어렵습니다. 천체의 위치와 거리에 상관없이 빛의 밝기를 비교하기 위한 수치입니다.
+- modelMag : Model magnitudes : 천체 중심으로부터 특정 거리의 밝기입니다.
+- fiberID : 관측에 사용된 광섬유의 구분자
 
 train : 73 MB (199991 ,24) 
 test : 3 MB (10009, 22)
@@ -288,7 +288,7 @@ test = all_data.loc[all_data['type'].isnull()].reset_index(drop=True)
 
 permutation importance는 feature importance를 확인을 목적으로 model이 data에 fit된 후 측정한다.
 모델을 학습시키고 데이터X, y, seed, iteration 한 값을 넣으면 변수가 중요한 순으로 반환해준다.
-아이디어는 결과를 기준으로 변수를 random shuffle하게 되는 경우 모델 성능에 영향을 많이 미치는 순으로 반환한다.
+기본 아이디어는 결과를 기준으로 변수를 random shuffle하게 되는 경우 모델 성능에 영향을 많이 미치는 순을 확인할 수 있다는 것이다.
 weight의 경우 감소된 정확도를 의미한다. +- 값의 경우는 one-reshuffling to the next 다시 reshuffle 시 변화되는 변동 폭을 의미하는 듯 보인다.
 
 <pre>
