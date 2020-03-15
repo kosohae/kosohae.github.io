@@ -109,6 +109,7 @@ STAR_WHITE_DWARF        2160
 => 결과 : 학습시 0.34 까지 0.02정도 val loss가 떨어지나 test 시에는 별다른 성능 향상을 보지 못했다. 
 
 2. 
+
 기본적인 mlp 아키텍처를 변형할 수 있을까? 
 이 생각은 기존에 이미지로 여겨지는 2-D array 데이터에 대해서 Convolution  filter weights를 구성한 네트워크에서 차용해서 1-D array의 Ax+b뿐만 아니라 Convolution 1D를 사용하면 어떨까 시작되었다.
 feature input : [a,b,c,d,e....]를 attention 블록 형태로 구성해서 계산하면 다음 블록은 그 가중치를 추가적으로 넘겨서 layer를 통과할 것이라 생각
